@@ -1,3 +1,4 @@
+console.log(val1) // undefined
 if (true) {
   var val1 = 1;
 }
@@ -6,4 +7,4 @@ function go() {
 }
 
 console.log(val1);
-console.log(val2);
+// console.log(val2); // ReferenceError: val2 is not defined
