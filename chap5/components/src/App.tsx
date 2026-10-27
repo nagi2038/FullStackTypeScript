@@ -1,17 +1,32 @@
-import { useState, type ChangeEvent } from 'react';
+import { useState, useEffect, type ChangeEvent } from 'react';
 import './App.css'
-import Home from './Home'
+import Home , {type UserType} from './Home'
 
 function App(){
-  const [label , setLabel] = useState("")
+  const [id , setId] = useState("");
+  const [users, setUsers] = useState<UserType[]>();
+
+  useEffect(()=>{
+    const idToGet = `https://jsonplaceholder.typicode.com/posts/${id}`;
+    fetch(idToGet).then((result)=>{
+      result.json().then((users)=>{
+        console.log("user updated", users);
+        setUsers(Array.isArray(users)?users : [users])
+      })
+    })
+  }, [id,
+    // users : adding user as value will trigger infinite loop because of recussrion of value
+
+  ])
+
   const onChange = (e:ChangeEvent<HTMLInputElement>) =>{
-    e.preventDefault();
-    setLabel(e.target.value)
-  }
+    setId(e.target.value);
+  };
   return (
     <>
-    <input type="text" value={label} onChange={onChange} />
-    <Home label={label}/>
+    id : <input type='text' value={id} onChange={onChange}/>
+    <Home users={users}/>
+
     </>
   )
 }
