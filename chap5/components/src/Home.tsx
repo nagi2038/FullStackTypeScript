@@ -1,5 +1,8 @@
-import type { FC } from "react";
+// import type { FC } from "react";
 
-export default function Home(){
-    return <div>Home Component</div>
+interface HomeProps {
+    label : string
+}
+export default function Home({label}:HomeProps) {
+    return <div> Receieved: {label}</div>
 }
