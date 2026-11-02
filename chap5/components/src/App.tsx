@@ -3,6 +3,7 @@ import './App.css'
 // import Home , {type UserType} from './Home'
 // import Awaitable from './Awaitable';
 import DeferredValue from './DeferredValue';
+import Transitioner from './Transitioner';
 
 // async function fetchData(url:string) {
 //   const response = await fetch(url);
@@ -12,8 +13,11 @@ import DeferredValue from './DeferredValue';
 
 function App(){
   return(
-<DeferredValue />
+    <Transitioner/>
   )
+//   return(
+// <DeferredValue />
+//   )
 
   // =====================  METHOSD 2 ========================
   // const [id, setId] = useState("");
