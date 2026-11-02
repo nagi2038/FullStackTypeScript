@@ -16,7 +16,7 @@ export default function Home({ users }: HomeProps) {
           <div
             key={user?.id}
             style={{
-              display: "felx",
+              display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
               marginBottom: "10px",
